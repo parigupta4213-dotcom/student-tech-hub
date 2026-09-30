@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Tech Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Announcement Bar / Connection Status -->
+  <div class="api-status-bar" id="statusBar">
+    <div class="container status-inner">
+      <span class="status-indicator" id="statusDot"></span>
+      <span id="statusText">Checking backend connection at <code>http://127.0.0.1:8000</code>...</span>
+    </div>
+  </div>
+
+  <!-- Header / Hero Section -->
+  <header class="hero-section">
+    <div class="container">
+      <div class="badge">🚀 Campus Tech Community</div>
+      <h1 class="main-heading">Student Tech Hub</h1>
+      <p class="sub-heading">
+        Your central portal for campus workshops, hackathons, and tech sessions. Connect with peers, level up your engineering skills, and register for upcoming events.
+      </p>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="container main-layout">
+    
+    <!-- Left Section: Upcoming Technical Events -->
+    <section class="events-section">
+      <div class="section-header">
+        <div>
+          <h2>Upcoming Technical Events</h2>
+          <p class="section-subtext">Explore exciting workshops, competitions, and seminars.</p>
+        </div>
+        <!-- Load Events Button -->
+        <button id="loadEventsBtn" class="btn btn-primary">
+          <span class="btn-icon">⚡</span>
+          <span id="btnText">Load Events</span>
+        </button>
+      </div>
+
+      <!-- Events List Container -->
+      <div id="eventsContainer" class="events-grid">
+        <div class="placeholder-card">
+          <div class="placeholder-icon">📅</div>
+          <h3>No events loaded yet</h3>
+          <p>Click the <strong>Load Events</strong> button above to fetch the latest schedule directly from the FastAPI backend.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Section: Student Registration Form -->
+    <section class="registration-section">
+      <div class="card form-card">
+        <div class="card-header">
+          <div class="card-badge">Join Us</div>
+          <h2>Student Registration</h2>
+          <p class="card-description">
+            Sign up to receive event reminders, workshop resources, and community announcements.
+          </p>
+        </div>
+
+        <!-- Alert Notification Box for feedback -->
+        <div id="formAlert" class="alert hidden" role="alert"></div>
+
+        <!-- Registration Form -->
+        <form id="registrationForm" novalidate>
+          <div class="form-group">
+            <label for="studentName">Full Name <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="studentName" 
+              name="studentName" 
+              placeholder="e.g. Alex Chen" 
+              required
+              autocomplete="name"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="studentEmail">Email Address <span class="required">*</span></label>
+            <input 
+              type="email" 
+              id="studentEmail" 
+              name="studentEmail" 
+              placeholder="e.g. alex.chen@university.edu" 
+              required
+              autocomplete="email"
+            >
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn btn-success btn-block">
+            <span class="btn-icon">✨</span>
+            <span>Register Now</span>
+          </button>
+        </form>
+
+        <div class="card-footer-note">
+          <p>🔒 We only use your information for student event updates.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© 2026 <strong>Student Tech Hub</strong> • Built with Plain HTML, CSS, JavaScript &amp; FastAPI</p>
+      <p class="footer-links">
+        <a href="http://127.0.0.1:8000/docs" target="_blank" rel="noopener">Interactive API Docs (Swagger UI)</a>
+        <span>•</span>
+        <a href="http://127.0.0.1:8000/api/events" target="_blank" rel="noopener">Raw Events JSON</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Plain JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
